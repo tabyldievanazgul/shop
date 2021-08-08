@@ -3,7 +3,7 @@ from .models import Product, ImageProduct
 
 class ImageProductSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('image',)
+        fields = ('id', 'image', 'product_id')
         model = ImageProduct
 
 class ProductSerializer(serializers.ModelSerializer):

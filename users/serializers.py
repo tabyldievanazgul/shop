@@ -9,6 +9,8 @@ USER_TYPE_CHOICES = (
     ('reader', 'Reader'),
 
 )
+
+
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         min_length=6, required=True,
@@ -38,6 +40,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+
 
 class LoginSerializer(TokenObtainPairSerializer):
     password = serializers.CharField(min_length=6, write_only=True)
